@@ -7,7 +7,7 @@
 """
 import click
 from flask import Flask
-
+# 用模块名称(app)实例化Flask对象
 app = Flask(__name__)
 
 
