@@ -10,9 +10,10 @@
             "request": "launch",
             "module": "flask",
             "env": {
-                "FLASK_APP": "./demos/hello/app.py",
+                "FLASK_APP": "./demos/http/app.py",
                 "FLASK_ENV": "development",
-                "FLASK_DEBUG": "0"
+                "FLASK_DEBUG": "0",
+                "SECRET_KEY": "DEBUG"
             },
             "args": [
                 "run",

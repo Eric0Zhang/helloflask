@@ -26,6 +26,8 @@ from flask import (
 )
 
 app = Flask(__name__)
+# 注意这里的环境变量可以存储在系统中,也可以存储在.env中,但是用VSCODE调试运行时,调试器只加载调试器中的环境变量
+# 如果想要看实际运行时的环境变量,可以用flask shell查看app.secret_key
 app.secret_key = os.getenv("SECRET_KEY", "secret string")
 
 
