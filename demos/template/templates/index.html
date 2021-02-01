@@ -6,7 +6,7 @@
 <h1>Template</h1>
 <ul>
     <li><a href="{{ url_for('watchlist') }}">Watchlist</a></li>
-    <li>Filter: {{ foo|musical }}</li>
+    <li>Filter: {{ foo|musical }}{#自定义过滤器:foo的后方添加音乐符号, 详见app.py#}</li> 
     <li>Global: {{ bar() }}</li>
     <li>Test: {% if name is baz %}I am baz.{% endif %}</li>
     <li>Macro: {{ qux(amount=1) }}</li>
