@@ -12,8 +12,8 @@ app = Flask(__name__)
 # 获取密码环境变量, 默认secret string
 app.secret_key = os.getenv("SECRET_KEY", "secret string")
 # jinja在等人环境变量
-app.jinja_env.trim_blocks = True
-app.jinja_env.lstrip_blocks = True
+app.jinja_env.trim_blocks = True # If this is set to True the first newline after a block is removed (block, not variable tag!). Defaults to False.
+app.jinja_env.lstrip_blocks = True # If this is set to True leading spaces and tabs are stripped from the start of a line to a block. Defaults to False.
 
 user = {
     "username": "Grey Li",
