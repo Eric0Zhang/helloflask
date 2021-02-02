@@ -4,7 +4,7 @@
 
 {% block content %}
 <h2>
-    <img src="{{ url_for('static', filename='avatar.jpg') }}" width="50"> {{ user.username }}
+    <img src="{{ url_for('static', filename='avatar.jpg') }}" width="50"> {{ user.username }}{# static是Flask内置视图函数,不是用户实现,用于存储静态文件的目录 #}
 </h2>
 {% if user.bio %}
 <i>{{ user.bio }}</i>
