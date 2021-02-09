@@ -13,7 +13,7 @@ from flask_ckeditor import CKEditor, upload_success, upload_fail
 from flask_dropzone import Dropzone
 from flask_wtf.csrf import validate_csrf
 from wtforms import ValidationError
-
+# 要pylance能识别当前目录下的自定义模块(forms.py),需要修改setting.json,增加"python.analysis.extraPaths": ["./demos/form"]
 from forms import LoginForm, FortyTwoForm, NewPostForm, UploadForm, MultiUploadForm, SigninForm, \
     RegisterForm, SigninForm2, RegisterForm2, RichTextForm
 

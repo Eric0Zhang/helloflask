@@ -4,6 +4,7 @@
 <h2>Basic Form</h2>
 
 <form method="post">
+    <!-- csrf_token是Flask-WTF自动创建的,不需要再form类中实现 -->
     {{ form.csrf_token }}
     {{ form.username.label }}<br>
     {{ form.username }}<br>
