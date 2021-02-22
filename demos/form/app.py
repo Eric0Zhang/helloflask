@@ -57,6 +57,7 @@ app.config["MAX_CONTENT_LENGTH"] = 5 * 1024 * 1024  # 5Mb
 # Flask-CKEditor config
 app.config["CKEDITOR_SERVE_LOCAL"] = True
 app.config["CKEDITOR_FILE_UPLOADER"] = "upload_for_ckeditor"
+app.config["CKEDITOR_LANGUAGE"] = "zh-cn"
 
 # Flask-Dropzone config
 app.config["DROPZONE_ALLOWED_FILE_TYPE"] = "image"
@@ -248,6 +249,14 @@ def multi_form_multi_view():
     )
 
 
+def flash_errors(form):
+    for field, errors in form.errors.items():
+        for error in errors:
+            flash(u"Error in the %s field - %s" % (
+                getattr(form, field).label.text,
+                error
+            ))
+
 @app.route("/handle-signin", methods=["POST"])
 def handle_signin():
     signin_form = SigninForm2()
@@ -257,10 +266,13 @@ def handle_signin():
         username = signin_form.username.data
         flash("%s, you just submit the Signin Form." % username)
         return redirect(url_for("index"))
-
-    return render_template(
-        "2form2view.html", signin_form=signin_form, register_form=register_form
-    )
+    else:
+        flash_errors(signin_form)
+        return redirect(url_for('multi_form_multi_view'))
+    # 上面的else是在验证失败的情况下,替代下面重新渲染模板的方案,避免了重复渲染
+    # return render_template(
+    #     "2form2view.html", signin_form=signin_form, register_form=register_form
+    # )
 
 
 @app.route("/handle-register", methods=["POST"])
