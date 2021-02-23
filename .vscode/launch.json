@@ -10,7 +10,7 @@
             "request": "launch",
             "module": "flask",
             "env": {
-                "FLASK_APP": "./demos/form/app.py",
+                "FLASK_APP": "./demos/database/app.py",
                 "FLASK_ENV": "development",
                 "FLASK_DEBUG": "0",
                 "SECRET_KEY": "DEBUG"
@@ -23,7 +23,8 @@
                  * 这里一定要注意，flask默认的5000端口可能已经被window占用,务必修改！
                  * flask默认端口是5000,如果发现数据无法返回，请换端口,可能你的端口5000已经被占用了！！！
                  */
-                "--port", "80"
+                "--port",
+                "80"
             ],
             "jinja": true
         }
