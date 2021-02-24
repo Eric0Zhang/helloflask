@@ -37,7 +37,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
 
-# handlers
+# handlers 将字典中的变量全部注册到shell中,免去了import
 @app.shell_context_processor
 def make_shell_context():
     return dict(
