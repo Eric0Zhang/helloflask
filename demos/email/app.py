@@ -27,7 +27,7 @@ app.config.update(
     MAIL_USE_SSL=True,
     MAIL_USERNAME=os.getenv('MAIL_USERNAME'),
     MAIL_PASSWORD=os.getenv('MAIL_PASSWORD'),
-    MAIL_DEFAULT_SENDER=('Grey Li', os.getenv('MAIL_USERNAME'))
+    MAIL_DEFAULT_SENDER=('Elliot Zhang', os.getenv('MAIL_USERNAME'))
 )
 
 mail = Mail(app)
@@ -42,7 +42,7 @@ def send_smtp_mail(subject, to, body):
 # send over SendGrid Web API
 def send_api_mail(subject, to, body):
     sg = sendgrid.SendGridAPIClient(os.getenv('SENDGRID_API_KEY'))
-    from_email = SGEmail('Grey Li <noreply@helloflask.com>')
+    from_email = SGEmail('Elliot Zhang <silentstorm321f@qq.com>')
     to_email = SGEmail(to)
     content = Content("text/plain", body)
     email = SGMail(from_email, subject, to_email, content)
